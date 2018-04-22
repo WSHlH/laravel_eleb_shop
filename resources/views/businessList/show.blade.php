@@ -6,7 +6,11 @@
         <dt>店铺名称</dt>
         <dd>{{$businessList->shop_name}}</dd>
         <dt>店铺图片</dt>
-        <dd><img src="{{\Illuminate\Support\Facades\Storage::url($businessList->shop_img)}}" alt="未上传" width="200"></dd>
+        <dd><img src="{{$businessList->shop_img}}" alt="未上传" width="200"></dd>
+        <dt>店铺所属分类</dt>
+        @foreach($category as $item)
+        <dd>{{$item->name}}</dd>
+        @endforeach
         <dt>店铺是否为品牌</dt>
         <dd>{{$businessList->brand==1?'是':'否'}}</dd>
         <dt>店铺是否准时达</dt>
@@ -27,6 +31,8 @@
         <dd>{{empty($businessList->notice)?'未设置':$businessList->notice}}</dd>
         <dt>店铺优惠</dt>
         <dd>{{empty($businessList->discount)?'未设置':$businessList->discount}}</dd>
+        <dt>审核状态</dt>
+        <dd>{{$businessList->is_examine==0?'未通过':'通过'}}</dd>
         <dt></dt><dd></dd>
         <dt></dt>
         <dd><a href="{{route('businessList.edit',['businessList'=>$businessList])}}" class="btn btn-warning">修改店铺信息</a></dd>

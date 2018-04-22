@@ -29,7 +29,7 @@ class CreateBusinessListsTable extends Migration
             $table->string('discount');
             $table->tinyInteger('is_examine');
             $table->timestamps();
-            $table->engine='InnoDB';
+            $table->engine = 'InnoDB';
             /**
              * "id": "s10001",
              * "shop_name": "上沙麦当劳",

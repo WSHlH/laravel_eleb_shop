@@ -15,7 +15,6 @@ class AddColumnToBusinesses extends Migration
     {
         Schema::table('businesses', function (Blueprint $table) {
             $table->string('remember_token');
-            $table->engine='InnoDB';
         });
     }
 

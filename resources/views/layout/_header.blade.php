@@ -14,7 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{route('business.index')}}">饿了吧 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{route('businessList.show',\Illuminate\Support\Facades\Auth::user())}}">饿了吧 <span class="sr-only">(current)</span></a></li>
                 {{--<li class="active"><a href="">列表 <span class="sr-only">(current)</span></a></li>--}}
                 {{--<li><a href="">添加</a></li>--}}
                 {{--<li class="dropdown">--}}
@@ -43,16 +43,15 @@
                 <li><a href="{{route('login')}}" style="color: #3471ef">登录</a></li>
                 @endguest
                 @auth
+                <li><a href="#" style="color: #3471ef">主营</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商家名称 <span class="caret"></span></a>
+                    {{--\Illuminate\Support\Facades\Auth::user()->phone   session()->get('name')--}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->phone}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">添加食品</a></li>
-                        <li><a href="#">本店食品列表</a></li>
+                        <li><a href="{{route('food.index')}}">本店食品列表</a></li>
+                        <li><a href="{{route('foodCategory.index')}}">食品分类列表</a></li>
                         <li role="separator" class="divider"></li>
-                        {{--{{route('businessList.show',['businessList'=>$businessList])}}--}}
-                        <li><a href="">查看详细信息</a></li>
-                        {{--{{route('businessList.edit')}}--}}
-                        <li><a href="">修改信息</a></li>
+                        <li><a href="{{route('business.edit',['business'=>\Illuminate\Support\Facades\Auth::user()])}}">修改信息</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                             <form action="{{route('logout')}}" method="post">

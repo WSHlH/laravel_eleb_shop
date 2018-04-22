@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBusinessesTable extends Migration
+class AddColumnToBusiness extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateBusinessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('businesses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('phone');
-            $table->string('password');
-            $table->timestamps();
-            $table->engine = 'InnoDB';
+        Schema::table('businesses', function (Blueprint $table) {
+            $table->unsignedTinyInteger('status');
         });
     }
 
@@ -29,6 +25,6 @@ class CreateBusinessesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('businesses');
+        //
     }
 }

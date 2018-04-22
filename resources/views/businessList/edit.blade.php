@@ -12,8 +12,8 @@
             <label class="radio-inline"><input type="radio" name="brand" value="0" {{$businessList->brand==0?'checked':''}}>否</label>
         </div>
         <div class="form-group">
-            <label for="phone">店铺所属分类:</label>
-            <select name="business_category_id"   class="form-control" >
+            <label for="business_categories_id">店铺所属分类:</label>
+            <select name="business_categories_id"   class="form-control" >
                 @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
@@ -56,11 +56,11 @@
         </div>
         <div class="form-group">
             <label for="notice">店铺公告:</label>
-            <input type="text" name="notice" value="{{$businessList->notice}}"  class="form-control" id="notice">
+            <textarea name="notice" class="form-control" cols="30" rows="4">{{$businessList->notice}}</textarea>
         </div>
         <div class="form-group">
             <label for="discount">店铺优惠:</label>
-            <input type="text" name="discount" value="{{$businessList->discount}}" class="form-control" id="discount">
+            <textarea name="discount" class="form-control" cols="30" rows="4">{{$businessList->discount}}</textarea>
         </div>
         <div class="form-group">
             <label for="invoice">店铺是否开具发票:</label>
@@ -75,5 +75,5 @@
     </form>
     <div>&emsp;</div>
     <img src="" alt="" class="col-xs-1">
-    <img src="/img/7.jpg" alt="" width="40%">
+    <img src="/img/8.jpg" alt="" width="40%">
 @stop
