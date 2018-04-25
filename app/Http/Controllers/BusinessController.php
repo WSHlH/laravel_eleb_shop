@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Business;
+use App\Model\BusinessActivities;
+use App\Model\BusinessActivity;
 use App\Model\BusinessList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +24,17 @@ class BusinessController extends Controller
 //            $arr[] = $arr[$category->id][$category->name];//得到一个一维索引数组
 //        }
         //然后再分配到页面显示(通过对应的分类id)
-        return view('business.index');
+
+        //查询针对店铺的活动
+        $current = date('Y-m-d');
+        $businessActivities = BusinessActivity::where('end','>',$current)->orderBy('end')->paginate(5);
+//        var_dump($businessActivities);die;
+        return view('business.index',compact('businessActivities'));
+    }
+
+    public function show(BusinessActivity $business)
+    {
+        return view('business.show',compact('business'));
     }
 
     public function create()

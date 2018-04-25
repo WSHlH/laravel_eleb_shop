@@ -15,7 +15,6 @@ class AddColumnToFoods extends Migration
     {
         Schema::table('foods',function (Blueprint $table){
             $table->unsignedInteger('business_lists_id');
-           $table->foreign('business_lists_id')->references('id')->on('business_lists');
         });
     }
 

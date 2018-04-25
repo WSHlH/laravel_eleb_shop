@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Model\Food;
 use App\Model\FoodCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use OSS\Core\OssException;
 
 class FoodController extends Controller
 {
@@ -30,17 +32,17 @@ class FoodController extends Controller
         //检测
         $this->validate($request,[
             'food_name'=>'required|min:1|max:15',
-            'food_image'=>'required|image',
+            'food_image'=>'required',
             'price'=>'required|numeric',
             'food_categories_id'=>'required',
             'description'=>'min:3|max:100',
         ]);
         //保存
-        $fileName = $request->file('food_image')->store('public/food');
-        $fileUrl = url(Storage::url($fileName));
+//        $fileName = $request->file('food_image')->store('public/food');
+//        $fileUrl = url(Storage::url($fileName));
         Food::create([
             'food_name'=>$request->food_name,
-            'food_image'=>$fileUrl,
+            'food_image'=>$request->food_image,
             'price'=>$request->price,
             'food_categories_id'=>$request->food_categories_id,
             'description'=>$request->description,
@@ -62,17 +64,17 @@ class FoodController extends Controller
         //检测
         $this->validate($request,[
             'food_name'=>['required','min:1','max:15',Rule::unique('foods')->ignore($food->id)],
-            'food_image'=>'required|image',
+            'food_image'=>'required',//|image
             'price'=>'required|numeric',
             'food_categories_id'=>'required',
             'description'=>'min:3|max:100',
         ]);
         //保存
-        $fileName = $request->file('food_image')->store('public/food');
-        $fileUrl = url(Storage::url($fileName));
+//        $fileName = $request->file('food_image')->store('public/food');
+//        $fileUrl = url(Storage::url($fileName));
         $food->update([
             'food_name'=>$request->food_name,
-            'food_image'=>$fileUrl,
+            'food_image'=>$request->food_image,
             'price'=>$request->price,
             'food_categories_id'=>$request->food_categories_id,
             'description'=>$request->description,

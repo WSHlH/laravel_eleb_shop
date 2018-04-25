@@ -21,8 +21,8 @@ class CreateFoodCategoriesTable extends Migration
             $table->string('type_accumulate');
             $table->unsignedTinyInteger('is_selected');
             $table->unsignedInteger('business_lists_id');
-            $table->foreign('business_lists_id')->references('id')->on('business_lists');
             $table->timestamps();
+            $table->engine='InnoDB';
         });
     }
 

@@ -40,6 +40,6 @@ class LoginController extends Controller
     {
         Auth::logout();
         session()->flash('success','注销成功!');
-        return view('business.index');
+        return redirect()->route('business.index');
     }
 }

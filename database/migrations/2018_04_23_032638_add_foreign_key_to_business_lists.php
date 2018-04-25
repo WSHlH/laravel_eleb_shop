@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToBusiness extends Migration
+class AddForeignKeyToBusinessLists extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnToBusiness extends Migration
      */
     public function up()
     {
-        Schema::table('businesses', function (Blueprint $table) {
-            $table->unsignedInteger('business_lists_id');
+        Schema::table('business_lists',function(Blueprint $table){
+            $table->foreign('business_categories_id')->references('id')->on('business_categories');
         });
     }
 

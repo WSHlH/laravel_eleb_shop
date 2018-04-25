@@ -38,19 +38,56 @@
             {{--</form>--}}
             <ul class="nav navbar-nav navbar-right">
                 @guest
-                <li><a href="{{route('business.create')}}" style="color: #3471ef">注册</a></li>
+                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">我要开店</a></li>
+                {{--style="color: #3471ef"   {{route('business.create')}}--}}
                 <li>&emsp;</li>
-                <li><a href="{{route('login')}}" style="color: #3471ef">登录</a></li>
+                <li><a href="{{route('login')}}" >登录</a></li>
+
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                {{--<h4 class="modal-title" id="mySmallModalLabel">注册店铺</h4>--}}
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('business.store')}}" method="post">
+                                    <div class="form-group">
+                                        <label for="shop_name">店铺名称</label>
+                                        <input type="text" name="shop_name" class="form-control" id="shop_name" placeholder="请输入店铺名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">电话</label>
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="请输入电话号码">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">密码</label>
+                                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >确认密码</label>
+                                        <input type="password" name="password_confirmation" class="form-control" placeholder="确认密码">
+                                    </div>
+                                    <button type="submit" class="btn btn-default btn-block">注册店铺</button>
+                                    {{csrf_field()}}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 @endguest
                 @auth
-                <li><a href="#" style="color: #3471ef">主营</a></li>
+                <li><a href="{{route('food.index')}}" >食品列表</a></li>
+                <li><a href="{{route('foodCategory.index')}}" >食品分类列表</a></li>
                 <li class="dropdown">
                     {{--\Illuminate\Support\Facades\Auth::user()->phone   session()->get('name')--}}
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{\Illuminate\Support\Facades\Auth::user()->phone}}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('food.index')}}">本店食品列表</a></li>
-                        <li><a href="{{route('foodCategory.index')}}">食品分类列表</a></li>
-                        <li role="separator" class="divider"></li>
+                        {{--<li><a href="{{route('food.index')}}">本店食品列表</a></li>--}}
+                        {{--<li><a href="{{route('foodCategory.index')}}">食品分类列表</a></li>--}}
+                        {{--<li role="separator" class="divider"></li>--}}
                         <li><a href="{{route('business.edit',['business'=>\Illuminate\Support\Facades\Auth::user()])}}">修改信息</a></li>
                         <li role="separator" class="divider"></li>
                         <li>

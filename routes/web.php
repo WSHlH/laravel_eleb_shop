@@ -30,3 +30,15 @@ Route::resource('food','FoodController');
 
 //添加食品分类
 Route::resource('foodCategory','FoodCategoryController');
+
+Route::get('/oss', function()
+{
+    $client = App::make('aliyun-oss');
+    $client->putObject("lavarel-eleb", "1.txt", "hello");
+    $result = $client->getObject("lavarel-eleb", "1.txt");
+    echo $result;
+});
+
+//图片上传
+Route::post('/foodAdd','UploadController@food');
+Route::post('/businessListAdd','UploadController@business');

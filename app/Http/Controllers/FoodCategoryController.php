@@ -95,4 +95,17 @@ class FoodCategoryController extends Controller
         session()->flash('success','修改成功!');
         return redirect()->route('foodCategory.index');
     }
+
+    public function destroy(FoodCategory $foodCategory)
+    {
+        //查询分类下是否有食物
+        $foods = DB::select('select count(*) as foods from foods where food_categories_id=?', [$foodCategory->id]);
+        if ($foods[0]->foods!=0){
+            session()->flash('warning','不可删除!该分类下包含食物,请先删除或移动食物!');
+            return redirect()->route('foodCategory.index');
+        }else{
+            session()->flash('success','删除成功!!');
+            return redirect()->route('foodCategory.index');
+        }
+    }
 }

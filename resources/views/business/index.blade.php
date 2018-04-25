@@ -2,9 +2,25 @@
 @section('title','饿了就来饿了吧')
 @section('content')
     <div class="jumbotron">
-        <h2 style="color: #43d5ef">欢迎进入, eleb!</h2>
-        <p>快来加入我们吧</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+        <h2 style="color: #ef8526">热门活动!!!</h2>
+        <table class="table table-hover table-border table-responsive" id="businessActivity">
+            <tr>
+                {{--<th>id</th>--}}
+                <th>活动名称</th>
+                <th>活动内容</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+            </tr>
+            @foreach($businessActivities as $businessActivity)
+                <tr data-id="{{$businessActivity->id}}">
+{{--                    <td>{{$businessActivity->id}}</td>--}}
+    <td><a href="{{route('business.show',['businessActivity'=>$businessActivity])}}">{{$businessActivity->title}}</a></td>
+    <td><a href="{{route('business.show',['businessActivity'=>$businessActivity])}}">{!! mb_substr($businessActivity->content,0,30) !!}</a></td>
+                    <td>{{$businessActivity->start}}</td>
+                    <td>{{$businessActivity->end}}</td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 @stop
 

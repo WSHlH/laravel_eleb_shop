@@ -44,7 +44,7 @@ class BusinessListController extends Controller
             'phone'=>['required','max:11',Rule::unique('businesses')->ignore($businessList->id)],
 //            'password'=>'required|min:3|max:16',
             "shop_name"=>'required|min:3|max:15',
-            "shop_img"=>'required|image',
+            "shop_img"=>'required',//|image
             'business_categories_id'=>'required',
             "brand"=>'required',
             "on_time"=>'required',
@@ -59,13 +59,13 @@ class BusinessListController extends Controller
         ]);
         //检验成功,开启事务保存至数据库
         DB::transaction(function () use($request,$businessList){
-            $fileName = $request->file('shop_img')->store('public/shop');
-            $fileUrl = url(Storage::url($fileName));
+//            $fileName = $request->file('shop_img')->store('public/shop');
+//            $fileUrl = url(Storage::url($fileName));
 //        var_dump($fileUrl);die;
             $businessList->update([
                 "shop_name"=>$request->shop_name,
                 'business_categories_id'=>$request->business_categories_id,
-                "shop_img"=>$fileUrl,
+                "shop_img"=>$request->shop_img,
                 "on_time"=>$request->on_time,
                 "humming"=>$request->humming,
                 "promise"=>$request->promise,

@@ -23,8 +23,8 @@ class CreateFoodsTable extends Migration
             $table->unsignedInteger('food_categories_id');
             $table->unsignedInteger('replies_id');
             $table->string('description');
-            $table->foreign('food_categories_id')->references('id')->on('food_categories');
             $table->timestamps();
+            $table->engine='InnoDB';
         });
     }
 
