@@ -13,6 +13,7 @@ class UploadController extends Controller
     public function food(Request $request)
     {
 //        dd($request->file('file'));
+//        $fileName = $request->file('file')->store('public/date'.date('Y-m-d'));
         $fileName = $request->file('file')->store('public/food');
 
         $client = App::make('aliyun-oss');

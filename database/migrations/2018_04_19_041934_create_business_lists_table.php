@@ -19,9 +19,9 @@ class CreateBusinessListsTable extends Migration
             $table->string('shop_img');
             $table->unsignedTinyInteger('brand');
             $table->unsignedTinyInteger('on_time');
-            $table->unsignedTinyInteger('humming');
-            $table->unsignedTinyInteger('promise');
-            $table->unsignedTinyInteger('invoice');
+            $table->unsignedTinyInteger('fengniao');
+            $table->unsignedTinyInteger('bao');
+            $table->unsignedTinyInteger('piao');
             $table->unsignedDecimal('start_send');
             $table->unsignedDecimal('send_cost');
             $table->unsignedInteger('estimate_time');

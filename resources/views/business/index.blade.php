@@ -15,12 +15,13 @@
                 <tr data-id="{{$businessActivity->id}}">
 {{--                    <td>{{$businessActivity->id}}</td>--}}
     <td><a href="{{route('business.show',['businessActivity'=>$businessActivity])}}">{{$businessActivity->title}}</a></td>
-    <td><a href="{{route('business.show',['businessActivity'=>$businessActivity])}}">{!! mb_substr($businessActivity->content,0,30) !!}</a></td>
+    <td><a href="{{route('business.show',['businessActivity'=>$businessActivity])}}">{!! mb_substr($businessActivity->content,0,15) !!}...</a></td>
                     <td>{{$businessActivity->start}}</td>
                     <td>{{$businessActivity->end}}</td>
                 </tr>
             @endforeach
         </table>
+        {{$businessActivities->links()}}
     </div>
 @stop
 

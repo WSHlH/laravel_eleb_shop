@@ -46,9 +46,9 @@
             <input type="text" name="send_cost" value="{{$businessList->send_cost}}"  class="form-control" id="send_cost">
         </div>
         <div class="form-group">
-            <label for="humming">店铺是否蜂鸟配送:</label>
-            <label class="radio-inline"><input type="radio" name="humming" value="1" {{$businessList->humming==1?'checked':''}}>是</label>
-            <label class="radio-inline"><input type="radio" name="humming" value="0" {{$businessList->humming==0?'checked':''}}>否</label>
+            <label for="fengniao">店铺是否蜂鸟配送:</label>
+            <label class="radio-inline"><input type="radio" name="fengniao" value="1" {{$businessList->fengniao==1?'checked':''}}>是</label>
+            <label class="radio-inline"><input type="radio" name="fengniao" value="0" {{$businessList->fengniao==0?'checked':''}}>否</label>
         </div>
         <div class="form-group">
             <label for="estimate_time">预约时间:</label>
@@ -60,9 +60,9 @@
             <label class="radio-inline"><input type="radio" name="on_time" value="0" {{$businessList->on_time==0?'checked':''}}>否</label>
         </div>
         <div class="form-group">
-            <label for="promise">店铺是否晚到必赔:</label>
-            <label class="radio-inline"><input type="radio" name="promise" value="1" {{$businessList->promise==1?'checked':''}}>是</label>
-            <label class="radio-inline"><input type="radio" name="promise" value="0" {{$businessList->promise==0?'checked':''}}>否</label>
+            <label for="bao">店铺是否晚到必赔:</label>
+            <label class="radio-inline"><input type="radio" name="bao" value="1" {{$businessList->bao==1?'checked':''}}>是</label>
+            <label class="radio-inline"><input type="radio" name="bao" value="0" {{$businessList->bao==0?'checked':''}}>否</label>
         </div>
         <div class="form-group">
             <label for="notice">店铺公告:</label>
@@ -73,9 +73,9 @@
             <textarea name="discount" class="form-control" cols="30" rows="4">{{$businessList->discount}}</textarea>
         </div>
         <div class="form-group">
-            <label for="invoice">店铺是否开具发票:</label>
-            <label class="radio-inline"><input type="radio" name="invoice" value="1" {{$businessList->invoice==1?'checked':''}}>是</label>
-            <label class="radio-inline"><input type="radio" name="invoice" value="0" {{$businessList->invoice==0?'checked':''}}>否</label>
+            <label for="piao">店铺是否开具发票:</label>
+            <label class="radio-inline"><input type="radio" name="piao" value="1" {{$businessList->piao==1?'checked':''}}>是</label>
+            <label class="radio-inline"><input type="radio" name="piao" value="0" {{$businessList->piao==0?'checked':''}}>否</label>
         </div>
         <div class="form-group">
             <input type="submit" value="确认修改" class="form-control btn-block">

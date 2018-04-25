@@ -5,6 +5,7 @@
     <form action="{{route('foodCategory.store')}}" method="POST" class="col-xs-6" enctype="multipart/form-data">
         分类名:
         <input type="text" name="name" class="form-control" value="{{old('name')}}"><br>
+{{--        <input type="hidden" name="type_accumulation" value="{{uniqid()}}">--}}
         默认选中:
         <label for=""><input type="checkbox" name="is_selected" value="1" {{old('name')==1?'checked':''}}>是</label><br><br>
         分类提示:

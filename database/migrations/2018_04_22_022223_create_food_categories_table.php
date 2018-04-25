@@ -18,7 +18,7 @@ class CreateFoodCategoriesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('tips');
-            $table->string('type_accumulate');
+            $table->string('type_accumulation');
             $table->unsignedTinyInteger('is_selected');
             $table->unsignedInteger('business_lists_id');
             $table->timestamps();

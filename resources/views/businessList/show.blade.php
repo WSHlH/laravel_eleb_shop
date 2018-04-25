@@ -16,11 +16,11 @@
         <dt>店铺是否准时达</dt>
         <dd>{{$businessList->on_time==1?'是':'否'}}</dd>
         <dt>店铺是否蜂鸟配送</dt>
-        <dd>{{$businessList->humming==1?'是':'否'}}</dd>
+        <dd>{{$businessList->fengniao==1?'是':'否'}}</dd>
         <dt>店铺是否晚到必赔</dt>
-        <dd>{{$businessList->promise==1?'是':'否'}}</dd>
+        <dd>{{$businessList->bao==1?'是':'否'}}</dd>
         <dt>店铺是否开具发票</dt>
-        <dd>{{$businessList->invoice==1?'是':'否'}}</dd>
+        <dd>{{$businessList->piao==1?'是':'否'}}</dd>
         <dt>起送价</dt>
         <dd>{{$businessList->start_send}}元</dd>
         <dt>配送费</dt>
