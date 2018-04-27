@@ -30,6 +30,7 @@ class FoodController extends Controller
     public function store(Request $request)
     {
         //检测
+
         $this->validate($request,[
             'food_name'=>'required|min:1|max:15',
             'food_image'=>'required',

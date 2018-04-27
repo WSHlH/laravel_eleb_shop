@@ -43,11 +43,14 @@ class FoodCategoryController extends Controller
                 ->where('business_lists_id','=',Auth::user()->business_lists_id)
                 ->update(['is_selected'=>0]);
         }
+        $id = DB::table('food_categories')->orderBy('id','desc')->first()->id;
+        $type = 'c'.($id+1);
         FoodCategory::create([
             'name'=>$request->name,
             'description'=>$request->description,
             'tips'=>$request->tips,
             'is_selected'=>$request->is_selected??0,
+            'type_accumulation'=>$type,
             'business_lists_id'=>Auth::user()->business_lists_id,
         ]);
         session()->flash('success','添加成功!');
