@@ -79,6 +79,7 @@
 
                 @endguest
                 @auth
+                <li><a href="{{route('order.index')}}" >订单列表</a></li>
                 <li><a href="{{route('food.index')}}" >食品列表</a></li>
                 <li><a href="{{route('foodCategory.index')}}" >食品分类列表</a></li>
                 <li class="dropdown">

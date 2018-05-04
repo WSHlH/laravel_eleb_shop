@@ -42,3 +42,11 @@ Route::get('/oss', function()
 //图片上传
 Route::post('/foodAdd','UploadController@food');
 Route::post('/businessListAdd','UploadController@business');
+
+//订单管理
+Route::resource('order','OrderController');
+//Route::get('sale','OrderController@sale')->name('sale');
+
+Route::get('orders','OrderController@orders')->name('orders');
+Route::post('everyOrder','OrderController@everyOrder')->name('everyOrder');
+Route::post('refuse','OrderController@refuse')->name('refuse');
