@@ -50,3 +50,10 @@ Route::resource('order','OrderController');
 Route::get('orders','OrderController@orders')->name('orders');
 Route::post('everyOrder','OrderController@everyOrder')->name('everyOrder');
 Route::post('refuse','OrderController@refuse')->name('refuse');
+
+//抽奖活动报名
+Route::get('eventBusiness','EventBusinessController@index')->name('eventBusiness');
+Route::get('eventShow/{eventShow}','EventBusinessController@show')->name('eventShow');
+Route::post('eventBusiness','EventBusinessController@store')->name('eventBusinessSave');
+Route::get('prizeBusiness','EventBusinessController@prize')->name('prizeBusiness');
+//Route::resource('eventBusiness','EventBusinessController');

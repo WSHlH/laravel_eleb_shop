@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand glyphicon glyphicon-grain" href="#">eleb</a>
+            <a class="navbar-brand glyphicon glyphicon-grain" href="{{route('eventBusiness')}}">eleb</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
