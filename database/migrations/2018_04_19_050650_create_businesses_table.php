@@ -17,6 +17,9 @@ class CreateBusinessesTable extends Migration
             $table->increments('id');
             $table->string('phone');
             $table->string('password');
+            $table->string('remember_token');
+            $table->unsignedInteger('business_lists_id');
+            $table->unsignedTinyInteger('status');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

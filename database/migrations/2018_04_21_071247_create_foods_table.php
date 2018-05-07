@@ -23,6 +23,12 @@ class CreateFoodsTable extends Migration
             $table->unsignedInteger('food_categories_id');
             $table->unsignedInteger('replies_id');
             $table->string('description');
+            $table->unsignedInteger('business_lists_id');
+            $table->decimal('rating');
+            $table->decimal('satisfy');
+            $table->decimal('satisfy_rate');
+            $table->string('tips');
+            $table->tinyInteger('size');
             $table->timestamps();
             $table->engine='InnoDB';
         });
