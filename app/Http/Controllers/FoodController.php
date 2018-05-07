@@ -56,7 +56,7 @@ class FoodController extends Controller
 
     public function edit(Food $food)
     {
-        $foodCategories = FoodCategory::all();
+        $foodCategories = FoodCategory::where('business_lists_id','=',Auth::user()->business_lists_id)->paginate();
         return view('food.edit',compact('food','foodCategories'));
     }
 
