@@ -32,7 +32,7 @@ class FoodController extends Controller
         //检测
 
         $this->validate($request,[
-            'food_name'=>'required|min:1|max:15',
+            'food_name'=>'required|min:1|max:15|unique:foods',
             'food_image'=>'required',
             'price'=>'required|numeric',
             'food_categories_id'=>'required',
