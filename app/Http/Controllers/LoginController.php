@@ -11,6 +11,10 @@ class LoginController extends Controller
 {
     public function show()
     {
+        //判断用户是否在登录界面
+        if (Auth::check()){
+            return redirect()->route('businessList.show',[Auth::user()]);
+        }
         return view('business.login');
     }
 
