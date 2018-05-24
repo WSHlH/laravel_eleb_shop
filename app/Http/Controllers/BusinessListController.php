@@ -24,8 +24,17 @@ class BusinessListController extends Controller
     public function show(BusinessList $businessList)
     {
         $category =DB::table('business_categories')->where('id','=',$businessList->business_categories_id)->get();
-//        var_dump($category);die;
+        dd(view('businessList.show',compact('businessList','category')));
+//        var_dump($businessList->id);die;
         return view('businessList.show',compact('businessList','category'));
+
+        //页面静态化实现
+//        $business = view('businessList.show',compact('businessList','category'))->render();
+//        var_dump($business);die;
+//        if (!is_dir('html/businessList/')){
+//            mkdir('html/businessList/',777,true);
+//        }
+//        file_put_contents('html/businessList/businessList-'.$businessList->id.'.html',$business);
     }
 
     public function edit(BusinessList $businessList)

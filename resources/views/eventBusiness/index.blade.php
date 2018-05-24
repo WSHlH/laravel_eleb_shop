@@ -20,5 +20,5 @@
             </tr>
         @endforeach
     </table>
-    {{$events->links()}}
+{{--    {{$events->links()}}--}}
 @stop

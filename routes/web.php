@@ -57,3 +57,23 @@ Route::get('eventShow/{eventShow}','EventBusinessController@show')->name('eventS
 Route::post('eventBusiness','EventBusinessController@store')->name('eventBusinessSave');
 Route::get('prizeBusiness','EventBusinessController@prize')->name('prizeBusiness');
 //Route::resource('eventBusiness','EventBusinessController');
+
+Route::get('search',function (){
+    $cl = new \App\SphinxClient();
+    $cl->SetServer ( '127.0.0.1', 9312);
+//$cl->SetServer ( '10.6.0.6', 9312);
+//$cl->SetServer ( '10.6.0.22', 9312);
+//$cl->SetServer ( '10.8.8.2', 9312);
+    $cl->SetConnectTimeout ( 10 );
+    $cl->SetArrayResult ( true );
+// $cl->SetMatchMode ( SPH_MATCH_ANY);
+    $cl->SetMatchMode ( SPH_MATCH_EXTENDED2);
+    $cl->SetLimits(0, 1000);
+    $info = '天府新谷';
+    $res = $cl->Query($info, 'shop');//shop
+//print_r($cl);
+    if ($res['total']){
+        $res = collect($res['matches'])->pluck('id')->toArray();//collect()将数组转化为集合
+    }
+    print_r($res);
+});

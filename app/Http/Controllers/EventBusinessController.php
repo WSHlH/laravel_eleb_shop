@@ -7,15 +7,22 @@ use App\Model\EventBusiness;
 use App\Model\EventPrize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 
 class EventBusinessController extends Controller
 {
     public function index()
     {
         //显示抽奖活动
-        $events = Event::paginate(5);
+//        $events = Event::paginate(5);
+        $events = Event::all();
 //        var_dump($events);die;
-        return view('eventBusiness.index',compact('events'));
+        if (!is_dir('html/eventBusiness/')){
+            mkdir('html/eventBusiness/',777,true);
+        }
+        $list = view('eventBusiness.index',compact('events'))->render();
+        file_put_contents('html/eventBusiness/list.html',$list);
+//        return view('eventBusiness.index',compact('events'));
     }
 
     public function show(Event $eventShow)

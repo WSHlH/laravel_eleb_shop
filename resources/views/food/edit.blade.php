@@ -1,5 +1,5 @@
 @extends('layout.default')
-@section('title','添加食品')
+@section('title','修改食品')
 @section('content')
     <link rel="stylesheet" type="text/css" href="/webuploader/webuploader.css">
     <form action="{{route('food.update',['food'=>$food,'foodCategories'=>$foodCategories])}}" method="post" enctype="multipart/form-data" class="col-xs-6">
